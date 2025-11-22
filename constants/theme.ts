@@ -1,25 +1,49 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Tema Futurista - SkillUpPlus 2030+
  */
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+// Cores Futuristas
+export const FuturisticColors = {
+  primary: '#FF6B35', // Laranja vibrante do logo
+  secondary: '#004E89',
+  accent: '#FFA726',
+  neonBlue: '#00D4FF',
+  neonPurple: '#9D4EDD',
+  neonPink: '#FF006E',
+  dark: '#0A0E27',
+  darkSecondary: '#1A1F3A',
+  darkTertiary: '#2A2F4A',
+  light: '#FFFFFF',
+  lightSecondary: '#F5F5F7',
+  gradient: {
+    start: '#FF6B35',
+    middle: '#FF8E53',
+    end: '#FF6B35',
+  },
+  gradientDark: {
+    start: '#004E89',
+    middle: '#0077BE',
+    end: '#00D4FF',
+  },
+};
+
+const tintColorLight = FuturisticColors.primary;
+const tintColorDark = FuturisticColors.neonBlue;
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    text: '#0A0E27',
+    background: '#FFFFFF',
     tint: tintColorLight,
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    text: '#FFFFFF',
+    background: '#0A0E27',
     tint: tintColorDark,
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
