@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # SkillUpPlus 2030+ – Requalificação Digital com React Native🧠
 
 📱 Aplicativo Mobile desenvolvido em React Native + Expo
