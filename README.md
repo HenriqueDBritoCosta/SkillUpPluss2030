@@ -1,50 +1,211 @@
-# Welcome to your Expo app 👋
+# SkillUpPlus 2030+ – Requalificação Digital com React Native🧠
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+📱 Aplicativo Mobile desenvolvido em React Native + Expo
+🔥 Autenticação com Firebase
+🤖 Recomendações personalizadas usando Inteligência Artificial (OpenAI)
+🌱 ODS da ONU: 4, 8, 9 e 10
 
-## Get started
+# Descrição do Projeto📘
 
-1. Install dependencies
+O SkillUpPlus 2030+ é um aplicativo mobile criado como solução para a Global Solution – Mobile Development & IoT (FIAP 2025.2).
+Ele foi projetado para apoiar estudantes e profissionais na requalificação digital e no desenvolvimento de habilidades essenciais para o futuro do trabalho.
 
-   ```bash
-   npm install
-   ```
+Combinando IA generativa, trilhas de aprendizado, autenticação segura e uma interface futurista, o aplicativo fornece uma experiência personalizada alinhada às tendências tecnológicas de 2030+.
 
-2. Start the app
+# Funcionalidades Principais🎯
+🔐 Login e Cadastro com Firebase Authentication
 
-   ```bash
-   npx expo start
-   ```
+Acesso seguro usando email e senha
 
-In the output, you'll find options to open the app in a
+Validação de formulários
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Redirecionamento automático para a Home
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+📦 Persistência no Firebase Realtime Database
 
-## Get a fresh project
+Armazena dados de perfil dos usuários:
 
-When you're ready, run:
+Nome
 
-```bash
-npm run reset-project
-```
+Email
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Interesses
 
-## Learn more
+Data de criação da conta
 
-To learn more about developing your project with Expo, look at the following resources:
+# Recomendações com Inteligência Artificial (OpenAI)🤖
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Gera trilhas personalizadas usando modelo GPT
 
-## Join the community
+Baseado nos interesses do usuário
 
-Join our community of developers creating universal apps.
+Retorno dinâmico e adaptativo usando API REST
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Navegação Híbrida com expo-router🧭
+
+Tabs: Home, Trilhas e Perfil
+
+Drawer: Recomendações IA
+
+Stack: Fluxo de autenticação
+
+# UI Moderna e Futurista🧩
+
+Componentes customizados:
+
+FuturisticButton
+
+FuturisticInput
+
+FuturisticCard
+
+Paleta neon e visual inspirado em tecnologia 2030+
+
+# Estrutura do Projeto🗂️
+/SKILLUPLUS2030
+ ├── app
+ │   ├── (auth)
+ │   │    ├── _layout.tsx
+ │   │    ├── login.tsx
+ │   │    └── register.tsx
+ │   ├── (drawer)
+ │   │    └── _layout.tsx
+ │   ├── (tabs)
+ │   │    ├── home.tsx
+ │   │    ├── perfil.tsx
+ │   │    ├── trilhas.tsx
+ │   │    ├── _layout.tsx
+ │   │    └── index.tsx
+ │   └── _layout.tsx
+ ├── asset
+ │   └── logo.png
+ ├── components
+ ├── config
+ │   ├── firebaseConfig.ts
+ │   └── iaApi.ts
+ ├── constants
+ ├── hooks
+ ├── scripts
+ ├── app.json
+ ├── babel.config.js
+ └── package.json
+
+# Tecnologias Utilizadas⚙️
+Tecnologia	Uso
+React Native (Expo)	Base do app mobile
+Expo Router	Navegação híbrida (Tabs + Drawer + Stack)
+Firebase Authentication	Login e cadastro
+Firebase Realtime Database	Persistência dos dados do usuário
+OpenAI API	IA para recomendações personalizadas
+TypeScript	Tipagem estática e maior robustez
+Ionicons	Ícones futuristas
+Glassmorphism UI	Estética moderna
+# Como Rodar o Projeto🚀
+📌 Pré-requisitos
+
+Node.js LTS
+
+Expo CLI
+
+Conta Firebase
+
+Chave da OpenAI
+
+🛠️ Instalação
+git clone https://github.com/usuario/SkillUpPlus2030.git
+cd SkillUpPlus2030
+npm install
+
+▶️ Executar o app
+npx expo start
+
+
+Depois:
+
+Pressione a para abrir no Android Emulator
+
+Ou escaneie o QR Code no Expo Go
+
+# Integração com Firebase🔥
+
+Arquivo: firebaseConfig.ts
+
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
+
+const firebaseConfig = {
+  apiKey: "...",
+  authDomain: "...",
+  projectId: "...",
+  storageBucket: "...",
+  messagingSenderId: "...",
+  appId: "...",
+  databaseURL: "https://xxxxxx-default-rtdb.firebaseio.com/"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const db = getDatabase(app);
+
+# Integração com IA (OpenAI)🤖
+
+Arquivo: iaApi.ts
+
+import axios from "axios";
+
+export async function gerarRecomendacao(perfil: { interesses: string[] }) {
+  const prompt = `
+  Usuário com interesses: ${perfil.interesses.join(', ')}.
+  Gere 5 trilhas de aprendizado profissional para 2030+.
+  `;
+
+  const response = await axios.post(
+    "https://api.openai.com/v1/chat/completions",
+    {
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: prompt }],
+    },
+    {
+      headers: {
+        Authorization: `Bearer SUA_CHAVE_AQUI`
+      }
+    }
+  );
+
+  return response.data.choices[0].message.content;
+}
+
+# Conexão com ODS da ONU🌍
+
+O projeto contribui diretamente para:
+
+🟦 ODS 4 — Educação de Qualidade
+
+Acesso democratizado à capacitação tecnológica.
+
+🟩 ODS 8 — Trabalho Decente e Crescimento Econômico
+
+Estimula requalificação digital e empregabilidade.
+
+🟨 ODS 9 — Indústria, Inovação e Infraestrutura
+
+Uso de IA e mobile como ferramentas de transformação.
+
+🟧 ODS 10 — Redução das Desigualdades
+
+Permite que todos tenham acesso a conhecimento de ponta.
+
+# Integrantes
+
+| Nome | RM |
+|------|-----|
+| Adriano Lopes | RM98574 |
+| Henrique de Brito | RM98831 |
+| Rodrigo Lima | RM98326 |
+
+# Conclusão🏁
+
+O SkillUpPlus 2030+ cumpre integralmente o desafio proposto pela Global Solution, unindo tecnologia, educação, IA e inovação para preparar usuários para o futuro do trabalho.
+Sua arquitetura modular, uso de Firebase e modelos avançados de IA tornam o aplicativo escalável, robusto e alinhado às demandas reais do mundo moderno.
